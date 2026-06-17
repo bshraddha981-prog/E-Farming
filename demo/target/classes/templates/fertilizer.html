@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Fertilizer Recommendation</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, select, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .msg {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>🌱 Fertilizer Recommendation System</h2>
+
+    <!-- ✅ MESSAGE SHOW -->
+    <div th:if="${message}">
+        <p class="msg" th:text="${message}"></p>
+    </div>
+
+    <!-- 👉 ADD FORM -->
+    <h3>Add Fertilizer</h3>
+    <form action="/fertilizer/add" method="post">
+        <input type="text" name="name" placeholder="Fertilizer Name" required>
+
+        <!-- Dropdown -->
+        <select name="cropName">
+            <option value="Rice">Rice</option>
+            <option value="Wheat">Wheat</option>
+        </select>
+
+        <select name="soilType">
+            <option value="Clay">Clay</option>
+            <option value="Sandy">Sandy</option>
+        </select>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <!-- 👉 RECOMMEND FORM -->
+    <h3>Get Recommendation</h3>
+    <form action="/fertilizer/recommend" method="post">
+        <select name="cropName">
+            <option value="Rice">Rice</option>
+            <option value="Wheat">Wheat</option>
+        </select>
+
+        <select name="soilType">
+            <option value="Clay">Clay</option>
+            <option value="Sandy">Sandy</option>
+        </select>
+
+        <button type="submit">Recommend</button>
+    </form>
+
+    <!-- 👉 RECOMMEND RESULT -->
+    <div th:if="${recommendations}">
+        <h3>Recommended Fertilizers</h3>
+        <ul>
+            <li th:each="r : ${recommendations}">
+                <span th:text="${r.name}"></span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 👉 ALL DATA TABLE -->
+    <h3>All Fertilizers</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Crop</th>
+            <th>Soil</th>
+            <th>Action</th>
+        </tr>
+
+        <tr th:each="f : ${fertilizers}">
+            <td th:text="${f.id}"></td>
+            <td th:text="${f.name}"></td>
+            <td th:text="${f.cropName}"></td>
+            <td th:text="${f.soilType}"></td>
+            <td>
+                <a th:href="@{'/fertilizer/edit/' + ${f.id}}">✏ Edit</a> |
+                <a th:href="@{'/fertilizer/delete/' + ${f.id}}">❌ Delete</a>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="/dashboard">⬅ Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

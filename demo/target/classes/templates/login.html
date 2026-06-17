@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-link a {
+            text-decoration: none;
+            color: green;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Login</h2>
+
+    <!-- ❗ MUST match AuthController POST /login -->
+    <form action="/login" method="post">
+
+        <input type="text" name="username" placeholder="Enter Username" required>
+
+        <input type="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <div class="register-link">
+        Don't have account?
+        <a href="/register">Register here</a>
+    </div>
+
+    <!-- Optional error message -->
+    <p class="error">
+        <!-- shows when /login?error -->
+        Invalid username or password
+    </p>
+
+</div>
+
+</body>
+</html>

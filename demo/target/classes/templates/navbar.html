@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="navbar">
+
+    <nav style="background-color:#333; padding:10px; display:flex; align-items:center;">
+
+        <!-- 🔵 COMMON LINKS -->
+        <a href="/dashboard" style="color:white; margin-right:15px; text-decoration:none;">
+            Dashboard
+        </a>
+
+        <a href="/weather" style="color:white; margin-right:15px; text-decoration:none;">
+            Weather
+        </a>
+
+        <!-- 👤 USER MENU -->
+        <span th:if="${session.role == 'USER'}">
+            <a href="/user" style="color:white; margin-right:15px; text-decoration:none;">
+                User Page
+            </a>
+        </span>
+
+        <!-- 👑 ADMIN MENU -->
+        <span th:if="${session.role == 'ADMIN'}">
+            <a href="/admin" style="color:white; margin-right:15px; text-decoration:none;">
+                Admin Panel
+            </a>
+
+            <a href="/crops" style="color:white; margin-right:15px; text-decoration:none;">
+                Manage Crops
+            </a>
+        </span>
+
+        <!-- 🔴 LOGOUT -->
+        <a href="/logout" style="color:red; margin-left:auto; text-decoration:none;">
+            Logout
+        </a>
+
+    </nav>
+
+</div>
+
+</body>
+</html>

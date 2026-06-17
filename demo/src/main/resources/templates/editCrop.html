@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Crop</title>
+</head>
+<body>
+
+<h2>Edit Crop</h2>
+
+<form action="/updateCrop" method="post">
+    
+    <input type="hidden" name="id" th:value="${crop.id}">
+
+    <input type="text" name="name" th:value="${crop.name}" required><br><br>
+
+    <input type="text" name="type" th:value="${crop.type}" required><br><br>
+
+    <input type="text" name="season" th:value="${crop.season}" required><br><br>
+
+    <button type="submit">Update Crop</button>
+</form>
+
+<br>
+<a href="/crops">⬅ Back</a>
+
+</body>
+</html>

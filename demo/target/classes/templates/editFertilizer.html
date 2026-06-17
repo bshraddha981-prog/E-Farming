@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Fertilizer</title>
+</head>
+<body>
+
+<h2>Edit Fertilizer</h2>
+
+<form action="/fertilizer/update" method="post">
+    <input type="hidden" name="id" th:value="${fertilizer.id}">
+
+    <input type="text" name="cropName" th:value="${fertilizer.cropName}">
+    <input type="text" name="soilType" th:value="${fertilizer.soilType}">
+    <input type="text" name="fertilizerName" th:value="${fertilizer.fertilizerName}">
+
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

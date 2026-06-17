@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add User - Farming System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f9;
+        }
+
+        .box {
+            width: 400px;
+            margin: 80px auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #198754;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #198754;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #146c43;
+        }
+
+        .back {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0d6efd;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>➕ Add User</h2>
+
+    <form action="/saveUser" method="post">
+
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter email" required>
+
+        <button type="submit">Save User</button>
+
+    </form>
+
+    <div class="back">
+        <a href="/users">← Back to Users</a>
+    </div>
+
+</div>
+
+</body>
+</html>

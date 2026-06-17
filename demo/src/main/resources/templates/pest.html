@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pest & Disease Detection</title>
+</head>
+<body>
+
+    <h2>Pest & Disease Detection</h2>
+
+    <table border="1">
+        <tr>
+            <th>Crop</th>
+            <th>Disease</th>
+            <th>Symptoms</th>
+            <th>Solution</th>
+        </tr>
+
+        <tr th:each="p : ${list}">
+            <td th:text="${p.cropName}"></td>
+            <td th:text="${p.diseaseName}"></td>
+            <td th:text="${p.symptoms}"></td>
+            <td th:text="${p.solution}"></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <a href="/dashboard">Back</a>
+
+</body>
+</html>
